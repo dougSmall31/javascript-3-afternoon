@@ -40,7 +40,11 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+  var valueStr = "";
+  for (let key in obj){
+    obj[key]+= valueStr;
+  }
+  return valueStr;  
 }
 
 
@@ -53,7 +57,14 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function greaterThan10(obj){
+  for (var key in obj){
+    if (obj[key] >10){
+      obj[key] = 0;
+    }
+  }
+  return obj;
+}
 
 
 
@@ -65,7 +76,12 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function double(obj){
+  for (const key in obj) {
+    obj[key] *=2;   
+  }
+  return obj;
+}
 
 
 
@@ -78,8 +94,15 @@ function showValues( obj ) {
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
-
-//Code Here
+function secrets(obj){
+  var str = '';
+  for (const key in obj) {
+    if(str.startsWith('sh')===true){
+      obj[key]+= str;
+    }
+  }
+  return str;
+}
 
 
 
@@ -110,7 +133,10 @@ function showValues( obj ) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassword(obj){
+  delete obj.password;
+  return obj;
+}
 
 
 
@@ -129,7 +155,15 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
+function noGreaterThan100 (obj){
+  for (var key in obj){
+    if (obj[key] > 100){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
+noGreaterThan100(deleteTheBigNumbers);
 
 
 
@@ -142,7 +176,14 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
+function startsWithK(obj){
+  for (var key in obj){
+    if (obj[key].startsWith('k',0)===true){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 
 
@@ -157,6 +198,13 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
+function hiddenTreasure (obj){
+  for (var key in obj){
+    if (obj[key].includes('treasure') !== true){
+      delete obj[key];
+    }
+  }
+  return obj;
+}
 
 

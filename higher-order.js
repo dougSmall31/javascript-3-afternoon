@@ -20,8 +20,10 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
   (element, index, wholeArray)=>{}    Arrow Form
 */
 
+
+
 //Code Here
-let evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
+let evenNumbers = mixedNumbers.filter((number) => number % 2 === 0)// = mixedNumbers.filter(/* Provide Your Callback Here */)
 
 
 
@@ -44,7 +46,11 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 //Code Here
-let postTaxPrices // = prices.map(/* Provide Your Callback Here );
+let postTaxPrices = prices.map(preTaxNumber => {
+  const taxAmount = preTaxNumber * .07;
+  const numberWithTax = preTaxNumber + taxAmount;
+  return numberWithTax;
+})
 
 
 
@@ -63,8 +69,9 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
-
+let totalPopulation = populations.reduce((accum,item)=>{
+  return accum + item;
+},0);
 
 
 ////////// PROBLEM 4 //////////
@@ -89,7 +96,9 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-let myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest=monstersInYourPocket.filter(function(obj){
+   return obj.CP > 200;
+});
 
 
 
@@ -106,7 +115,10 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get the sum of all the order totals after adding in the sales tax
 */
 
-let ordersTotal //Code Here
+let ordersTotal = orders.reduce(function(sum, item){
+  return 
+
+},0)
 
 
 
@@ -126,6 +138,18 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+
+//purchases.reduce((accum, item) =>{
+  //if (item.owner === "Bob"){
+    //return accum + item.price
+  //} else {
+    //return accum
+  //}
+//}, 0)
+
+let bobsTotal = purchases.reduce((accum, item) =>{
+  return item["owner"] === "Bob" ? accum +item["price"] : accum
+}, 0);
+
 
 
